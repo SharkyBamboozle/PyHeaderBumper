@@ -1,4 +1,4 @@
-#!/usr/bin/env python2.7
+#!/usr/bin/env python3.6
 # -*- coding: utf-8 -*-
 
 """The code was hard to write it should be hard to read. Small code golfing 
@@ -39,9 +39,9 @@ def HeaderBumper(title="Header Bumper v2.0", marker="#", indent=0, time=False):
     bumper = HeaderBumper(title,marker,indent-1,time) +"\n \n" if indent else ""
     if indent *8 +len(title) > 72: title = title[:max(0, 69 -indent *8)] + "..."
     title += "" if len(title) % 2 == 0 else " "
-    banner, gap = "\t"*indent+marker+"="*(39-indent*4), "|"+" " *(10/(indent+1))
-    banner += banner[::-1] +"\n" +banner[:max(40 -indent *3 -len(title) /2 -len(
-        gap), indent+2)] +gap[:max(2,min(len(gap), 38-indent *4 -len(title)/2))]
+    banner, gap ="\t"*indent+marker+"="*(39-indent*4),"|"+" "*int(10/(indent+1))
+    banner += banner[::-1]+"\n"+banner[:int(max(40-indent*3-len(title)/2-len(gap
+        ),indent+2))] +gap[:int(max(2,min(len(gap), 38-indent*4-len(title)/2)))]
     time ="<{}>".format(datetime.now().strftime('%H:%M:%S')) if time else "="*12
     pos = banner[80 -indent *6:].count("=") +indent +11
     return bumper+(banner+title.title()+banner[:pos:-1]+time+banner[pos-10::-1])
