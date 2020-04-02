@@ -42,7 +42,7 @@ def HeaderBumper(title="Header Bumper v2.0", marker="#", indent=0, time=False):
     banner, gap ="\t"*indent+marker+"="*(39-indent*4),"|"+" "*int(10/(indent+1))
     banner += banner[::-1]+"\n"+banner[:int(max(40-indent*3-len(title)/2-len(gap
         ),indent+2))] +gap[:int(max(2,min(len(gap), 38-indent*4-len(title)/2)))]
-    time ="<{}>".format(datetime.now().strftime('%H:%M:%S')) if time else "="*12
+    time ="<{}>".format(datetime.now().strftime('%H:%M:%S')) if time else "="*10
     pos = banner[80 -indent *6:].count("=") +indent +11
     return bumper+(banner+title.title()+banner[:pos:-1]+time+banner[pos-10::-1])
 
